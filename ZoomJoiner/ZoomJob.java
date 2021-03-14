@@ -153,6 +153,7 @@ public class ZoomJob implements Job {
             }
 
             enterRobot.keyPress(KeyEvent.VK_ENTER);
+            enterRobot.keyRelease(KeyEvent.VK_ENTER);
         } catch (AWTException e) {
             e.printStackTrace();
         }
