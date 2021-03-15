@@ -48,18 +48,17 @@ public class ZoomJob implements Job {
         case "08:45:00":
             leaveMeeting();
             break;
-        // third period doesn't require me to log into zoom; uncomment this if needed.
-        // case "08:55:00 CST 2021":
-        // System.out.println("Joining third period.");
-        // try {
-        // open(new URI("https://www.example.com"));
-        // } catch (URISyntaxException e) {
-        // e.printStackTrace();
-        // }
-        // break;
-        // case "09:40:00 CST 2021":
-        // leaveMeeting();
-        // break;
+        case "08:55:00 CST 2021":
+            System.out.println("Joining third period.");
+            try {
+                open(new URI("https://www.example.com"));
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+            break;
+        case "09:40:00 CST 2021":
+            leaveMeeting();
+            break;
         case "10:15:00":
             System.out.println("Joining fourth period.");
             try {
