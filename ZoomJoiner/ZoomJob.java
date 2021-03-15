@@ -121,9 +121,26 @@ public class ZoomJob implements Job {
     public static void leaveMeeting() {
         try {
             Robot leaverRobot = new Robot();
-            leaverRobot.mouseMove(1876, 1051);
-            leaverRobot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-            leaverRobot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+            leaverRobot.keyPress(KeyEvent.VK_ALT);
+            leaverRobot.keyPress(KeyEvent.VK_Q);
+            leaverRobot.keyRelease(KeyEvent.VK_ALT);
+            leaverRobot.keyRelease(KeyEvent.VK_Q);
+
+            leaverRobot.keyPress(KeyEvent.VK_ENTER);
+            leaverRobot.keyRelease(KeyEvent.VK_ENTER);
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+    }public static void leaveMeeting() {
+        try {
+            Robot leaverRobot = new Robot();
+            leaverRobot.keyPress(KeyEvent.VK_ALT);
+            leaverRobot.keyPress(KeyEvent.VK_Q);
+            leaverRobot.keyRelease(KeyEvent.VK_ALT);
+            leaverRobot.keyRelease(KeyEvent.VK_Q);
+
+            leaverRobot.keyPress(KeyEvent.VK_ENTER);
+            leaverRobot.keyRelease(KeyEvent.VK_ENTER);
         } catch (AWTException e) {
             e.printStackTrace();
         }
