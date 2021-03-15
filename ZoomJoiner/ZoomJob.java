@@ -131,19 +131,6 @@ public class ZoomJob implements Job {
         } catch (AWTException e) {
             e.printStackTrace();
         }
-    }public static void leaveMeeting() {
-        try {
-            Robot leaverRobot = new Robot();
-            leaverRobot.keyPress(KeyEvent.VK_ALT);
-            leaverRobot.keyPress(KeyEvent.VK_Q);
-            leaverRobot.keyRelease(KeyEvent.VK_ALT);
-            leaverRobot.keyRelease(KeyEvent.VK_Q);
-
-            leaverRobot.keyPress(KeyEvent.VK_ENTER);
-            leaverRobot.keyRelease(KeyEvent.VK_ENTER);
-        } catch (AWTException e) {
-            e.printStackTrace();
-        }
     }
 
     public static void enterPassword(int[] passwordArray, boolean isFirstLetterCapitalized) {
