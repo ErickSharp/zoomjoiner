@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
@@ -19,14 +20,15 @@ public class ZoomJob implements Job {
         String date = new Date().toString().substring(11, 19);
         System.out.println(date);
 
-        int[] algebraPassword = { 73, 78, 86, 69, 82, 83, 69 };
-        int[] chemistryPassword = { 66, 69, 78, 73, 78, 71 };
-
+        // Takes in each character as ASCII capital letter code.
+        int[] testPassword = { 73, 78, 86, 69, 82, 83, 69 };
+        int[] testPassword2 = { 73, 78, 86, 69, 82, 83, 69 };
+        
         switch (date) {
         case "07:15:00":
-            System.out.println("Joining first period. ALGEBRA 2");
+            System.out.println("Joining first period.");
             try {
-                open(new URI("https://katyisd-org.zoom.us/j/6497260523"));
+                open(new URI("https://www.example.com"));
             } catch (URISyntaxException e) {
                 e.printStackTrace();
             }
@@ -36,9 +38,9 @@ public class ZoomJob implements Job {
             leaveMeeting();
             break;
         case "08:05:00":
-            System.out.println("Joining second period. SPANISH 2");
+            System.out.println("Joining second period.");
             try {
-                open(new URI("https://us02web.zoom.us/j/81359922770?pwd=THVHaU1IWmw0K3NKQURUaVBrcUE2Zz09"));
+                open(new URI("https://www.example.com"));
             } catch (URISyntaxException e) {
                 e.printStackTrace();
             }
@@ -46,6 +48,7 @@ public class ZoomJob implements Job {
         case "08:45:00":
             leaveMeeting();
             break;
+        // third period doesn't require me to log into zoom; uncomment this if needed.
         // case "08:55:00 CST 2021":
         // System.out.println("Joining third period.");
         // try {
@@ -58,9 +61,9 @@ public class ZoomJob implements Job {
         // leaveMeeting();
         // break;
         case "10:15:00":
-            System.out.println("Joining fourth period. HEALTH");
+            System.out.println("Joining fourth period.");
             try {
-                open(new URI("https://us02web.zoom.us/j/86361386136?pwd=UjIyVDF6NU1jNFVDZ1JCTjQ4M0dwQT09"));
+                open(new URI("https://www.example.com"));
             } catch (URISyntaxException e) {
                 e.printStackTrace();
             }
@@ -69,9 +72,9 @@ public class ZoomJob implements Job {
             leaveMeeting();
             break;
         case "12:15:00":
-            System.out.println("Joining fifth period. ENGLISH");
+            System.out.println("Joining fifth period.");
             try {
-                open(new URI("https://katyisd-org.zoom.us/j/84871801616"));
+                open(new URI("https://www.example.com"));
             } catch (URISyntaxException e) {
                 e.printStackTrace();
             }
@@ -80,21 +83,21 @@ public class ZoomJob implements Job {
             leaveMeeting();
             break;
         case "12:55:00":
-            System.out.println("Joining sixth period. CHEMISTRY");
+            System.out.println("Joining sixth period.");
             try {
-                open(new URI("https://katyisd-org.zoom.us/j/81326003271"));
+                open(new URI("https://www.example.com"));
             } catch (URISyntaxException e) {
                 e.printStackTrace();
             }
-            enterPassword(chemistryPassword, true);
+            enterPassword(testPassword2, true);
             break;
         case "13:40:00":
             leaveMeeting();
             break;
         case "13:45:00":
-            System.out.println("Joining seventh period. WHAP");
+            System.out.println("Joining seventh period.");
             try {
-                open(new URI("https://katyisd-org.zoom.us/j/83894490073?pwd=MVJybUVFMytCelgxWHUvU2FPRGEvUT09"));
+                open(new URI("https://www.example.com"));
             } catch (URISyntaxException e) {
                 e.printStackTrace();
             }
@@ -119,15 +122,14 @@ public class ZoomJob implements Job {
     }
 
     public static void leaveMeeting() {
+        //YOU MUST HAVE "Ask me to confirm when I leave a meeting" TURNED OFF.
         try {
             Robot leaverRobot = new Robot();
+
             leaverRobot.keyPress(KeyEvent.VK_ALT);
             leaverRobot.keyPress(KeyEvent.VK_Q);
             leaverRobot.keyRelease(KeyEvent.VK_ALT);
             leaverRobot.keyRelease(KeyEvent.VK_Q);
-
-            leaverRobot.keyPress(KeyEvent.VK_ENTER);
-            leaverRobot.keyRelease(KeyEvent.VK_ENTER);
         } catch (AWTException e) {
             e.printStackTrace();
         }
@@ -138,11 +140,6 @@ public class ZoomJob implements Job {
             Robot enterRobot = new Robot();
 
             enterRobot.delay(10000);
-
-            enterRobot.mouseMove(840, 480);
-
-            enterRobot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-            enterRobot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
 
             for (int i = 0; i < passwordArray.length; i++) {
                 if (isFirstLetterCapitalized && i == 0) {
