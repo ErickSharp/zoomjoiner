@@ -32,7 +32,7 @@ public class ZoomJob implements Job {
             } catch (URISyntaxException e) {
                 e.printStackTrace();
             }
-            enterPassword(algebraPassword, false);
+            enterPassword(testPassword, false);
             break;
         case "07:50:00":
             leaveMeeting();
