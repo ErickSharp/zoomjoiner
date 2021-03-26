@@ -21,7 +21,6 @@ public class ZoomTrigger {
         Scheduler schedule = StdSchedulerFactory.getDefaultScheduler();
         schedule.start();
         schedule.scheduleJob(job, triggerOne);
-        JOptionPane.showMessageDialog(null,
-                "ZoomJoiner started. After closing this pop-up, the program will be running in the background and join your Zooms at the appropriate times!");
+        System.out.println("Process started.");
     }
 }
