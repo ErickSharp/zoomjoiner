@@ -49,7 +49,7 @@ public class ZoomJob implements Job {
             case "08:40:00":
                 leaveMeeting();
                 break;
-            case "08:55:00 CST 2021":
+            case "08:55:00":
             System.out.println("Joining third period.");
             try {
             open(new URI("https://www.example.com"));
@@ -57,7 +57,7 @@ public class ZoomJob implements Job {
             e.printStackTrace();
             }
             break;
-            case "09:40:00 CST 2021":
+            case "09:40:00":
             leaveMeeting();
             break;
             case "10:15:00":
